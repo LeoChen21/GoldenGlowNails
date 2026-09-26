@@ -38,16 +38,46 @@
 </header>
 
 <script>
-  const toggle = document.querySelector('.nav-toggle');
-  const nav = document.getElementById('site-nav');
-  toggle?.addEventListener('click', () => {
-    const open = nav?.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', String(!!open));
-  });
-  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    nav.classList.remove('open');
+  // Event delegation so the toggle keeps working after Astro view transitions
+  // (which replace the header DOM but don't re-run inline scripts).
+  const closeNav = () => {
+    const nav = document.getElementById('site-nav');
+    const toggle = document.querySelector('.nav-toggle');
+    nav?.classList.remove('open');
     toggle?.setAttribute('aria-expanded', 'false');
-  }));
+  };
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as Element | null;
+    if (!target) return;
+
+    const toggle = target.closest('.nav-toggle');
+    if (toggle) {
+      e.preventDefault();
+      const nav = document.getElementById('site-nav');
+      const open = nav?.classList.toggle('open') ?? false;
+      toggle.setAttribute('aria-expanded', String(open));
+      return;
+    }
+
+    const link = target.closest('#site-nav a');
+    if (link) {
+      closeNav();
+      return;
+    }
+
+    const nav = document.getElementById('site-nav');
+    if (nav?.classList.contains('open') && !target.closest('#site-nav') && !target.closest('.nav-toggle')) {
+      closeNav();
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeNav();
+  });
+
+  // Close menu on page navigation just in case
+  document.addEventListener('astro:before-swap', closeNav);
 </script>
 
 <style>
