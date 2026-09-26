@@ -1,0 +1,172 @@
+---
+---
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="/" class="brand">
+      <span class="brand-mark">✦</span>
+      <span class="brand-name">Golden Glow Nail Studio</span>
+    </a>
+
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="site-nav">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav id="site-nav" class="site-nav">
+      <a href="/">Home</a>
+      <a href="/about">About</a>
+      <a href="/gallery">Gallery</a>
+      <a href="https://instagram.com/goldenglownail" target="_blank" rel="noopener">Instagram</a>
+      <a href="tel:+17189847777" class="nav-cta">Call Now</a>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.querySelector('.nav-toggle');
+  const nav = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(!!open));
+  });
+  nav?.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    nav.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+  }));
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(9, 60, 79, 0.08);
+  }
+
+  .header-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0.9rem 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+    text-decoration: none;
+    color: #093C4F;
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #f6c65a, #e08d3c);
+    color: white;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 6px rgba(224, 141, 60, 0.4);
+  }
+
+  .site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .site-nav a {
+    color: #0D1D24;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+
+  .site-nav a:hover {
+    color: #21A69A;
+  }
+
+  .site-nav .nav-cta {
+    background: #21A69A;
+    color: white;
+    padding: 0.5rem 0.95rem;
+    border-radius: 999px;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(33, 166, 154, 0.3);
+  }
+
+  .site-nav .nav-cta:hover {
+    background: #1a8f85;
+    color: white;
+  }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 22px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .nav-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: #093C4F;
+    border-radius: 2px;
+  }
+
+  @media (max-width: 720px) {
+    .nav-toggle {
+      display: flex;
+    }
+    .site-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.98);
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+      padding: 0.5rem 1.25rem 1rem;
+      border-bottom: 1px solid rgba(9, 60, 79, 0.08);
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .site-nav.open {
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .site-nav a {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(9, 60, 79, 0.06);
+    }
+    .site-nav .nav-cta {
+      margin-top: 0.5rem;
+      text-align: center;
+      border-bottom: 0;
+    }
+  }
+</style>

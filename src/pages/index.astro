@@ -1,137 +1,134 @@
 ---
 import Layout from '../components/Layout.astro';
-import Background from '../components/Background.astro';
 ---
 
 <Layout title="Golden Glow Nail Studio — Staten Island, NY">
-	<main>
-    <Background />
-    <div id="content">
-      <section class="hero">
-        <div class="hero-text">
-          <h1>Golden Glow Nail Studio</h1>
-          <p class="tagline">Where every nail tells a story.</p>
-          <div class="btns">
-            <a href="tel:+17189847777" class="btn primary">Call (718) 984-7777</a>
-            <a href="#visit" class="btn secondary">Plan Your Visit</a>
-          </div>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">Staten Island · Est. Golden Glow</p>
+        <h1>Where every nail tells a story.</h1>
+        <p class="lede">
+          Custom nail art, spa manicures &amp; pedicures — crafted with care in the heart of Great Kills.
+        </p>
+        <div class="cta">
+          <a href="tel:+17189847777" class="btn primary">Call (718) 984-7777</a>
+          <a href="/gallery" class="btn secondary">See Our Work</a>
         </div>
-        <div class="hero-image">
-          <img src="/photos/hero-fruit.png" alt="Colorful summer nail art with orange and floral designs" />
-        </div>
-      </section>
-
-      <section class="gallery">
-        <h2>Our Work</h2>
-        <div class="gallery-grid">
-          <img src="/photos/nail-purple.png" alt="Purple nails with floral accents" loading="lazy" />
-          <img src="/photos/nail-bows.png" alt="Green nails with pink bow designs" loading="lazy" />
-          <img src="/photos/nail-galaxy.png" alt="Galaxy-themed nail art with stars" loading="lazy" />
-          <img src="/photos/nail-cats.png" alt="Nail art with cat characters" loading="lazy" />
-          <img src="/photos/nail-snowflake.png" alt="Soft pink nails with snowflake design" loading="lazy" />
-          <img src="/photos/hero-fruit.png" alt="Summer fruit-themed nails" loading="lazy" />
-        </div>
-        <p class="gallery-note">See more on <a href="https://instagram.com/goldenglownail" target="_blank" rel="noopener">Instagram @goldenglownail</a></p>
-      </section>
-
-      <section class="services">
-        <h2>Services</h2>
-        <ul class="service-grid">
-          <li><strong>Manicures</strong><span>Classic · Gel · Acrylic</span></li>
-          <li><strong>Pedicures</strong><span>Spa · Deluxe · Polish change</span></li>
-          <li><strong>Nail Art</strong><span>Custom designs by our artists</span></li>
-          <li><strong>Waxing</strong><span>Brows · Lip · Facial</span></li>
-        </ul>
-      </section>
-
-      <section id="visit" class="visit">
-        <div class="visit-block">
-          <h2>Visit Us</h2>
-          <p>
-            150 Greaves Lane<br />
-            Staten Island, NY 10308
-          </p>
-          <p>
-            <a href="tel:+17189847777">(718) 984-7777</a>
-          </p>
-          <p>
-            <a
-              href="https://www.google.com/maps/search/?api=1&query=150+Greaves+Lane+Staten+Island+NY+10308"
-              target="_blank"
-              rel="noopener"
-            >Get Directions →</a>
-          </p>
-          <p>
-            <a
-              href="https://instagram.com/goldenglownail"
-              target="_blank"
-              rel="noopener"
-            >Follow @goldenglownail on Instagram</a>
-          </p>
-        </div>
-
-        <div class="visit-block">
-          <h2>Hours</h2>
-          <ul class="hours">
-            <li><span>Mon – Sat</span><span>9:30 AM – 7:30 PM</span></li>
-            <li><span>Sunday</span><span>9:00 AM – 6:00 PM</span></li>
-          </ul>
-          <p class="note">Open 7 days a week · Walk-ins welcome</p>
-        </div>
-      </section>
-
-      <footer>
-        <p>&copy; {new Date().getFullYear()} Golden Glow Nail Studio</p>
-      </footer>
+      </div>
+      <div class="hero-image">
+        <img src="/photos/hero-fruit.png" alt="Colorful summer nail art with orange and floral designs" />
+      </div>
     </div>
-	</main>
+  </section>
+
+  <section id="services" class="services container">
+    <h2>What We Do</h2>
+    <div class="service-grid">
+      <article class="service-card">
+        <h3>Manicures</h3>
+        <p>Classic, gel, and acrylic finishes tailored to your style.</p>
+      </article>
+      <article class="service-card">
+        <h3>Pedicures</h3>
+        <p>Spa treatments, deluxe soaks, and polish that lasts.</p>
+      </article>
+      <article class="service-card">
+        <h3>Nail Art</h3>
+        <p>Hand-painted, jeweled, and 3D designs by our artists.</p>
+      </article>
+      <article class="service-card">
+        <h3>Waxing</h3>
+        <p>Brows, lip, and facial waxing for a polished finish.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="visit" class="visit container">
+    <div class="visit-card">
+      <div>
+        <h2>Come Visit</h2>
+        <p>
+          150 Greaves Lane, Staten Island, NY 10308<br />
+          Open Mon–Sat 9:30 AM – 7:30 PM · Sun 9 AM – 6 PM
+        </p>
+      </div>
+      <div class="visit-cta">
+        <a href="tel:+17189847777" class="btn primary">Call Now</a>
+        <a
+          href="https://www.google.com/maps/search/?api=1&query=150+Greaves+Lane+Staten+Island+NY+10308"
+          class="btn secondary"
+          target="_blank"
+          rel="noopener"
+        >Directions</a>
+      </div>
+    </div>
+  </section>
 </Layout>
 
 <style>
-  main {
-    padding: 0 1rem;
-  }
-
-  #content {
-    max-width: 960px;
-    padding: 3rem 0 2rem;
-    gap: 3rem;
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem;
   }
 
   .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.5rem;
-    align-items: center;
-    padding: 2rem 1rem 1rem;
+    padding: 3rem 1.25rem 2rem;
   }
 
-  .hero-text {
-    text-align: left;
+  .hero-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .eyebrow {
+    color: #21A69A;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin: 0 0 1rem;
   }
 
   .hero h1 {
-    padding-top: 0;
-    margin: 0 0 0.5rem;
+    padding: 0;
+    margin: 0 0 1rem;
     letter-spacing: -0.02em;
+    line-height: 1.05;
+  }
+
+  .lede {
+    font-size: 1.15rem;
+    color: #4a5b64;
+    line-height: 1.6;
+    margin: 0 0 1.75rem;
+    max-width: 480px;
+  }
+
+  .cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
   }
 
   .hero-image img {
     width: 100%;
     height: auto;
-    border-radius: 16px;
-    box-shadow: 0 12px 32px rgba(9, 60, 79, 0.18);
+    border-radius: 20px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
+    box-shadow: 0 20px 40px rgba(9, 60, 79, 0.2);
   }
 
   @media (max-width: 720px) {
-    .hero {
+    .hero-inner {
       grid-template-columns: 1fr;
-      text-align: center;
-    }
-    .hero-text {
-      text-align: center;
+      gap: 2rem;
     }
     .hero-image {
       max-width: 320px;
@@ -139,141 +136,65 @@ import Background from '../components/Background.astro';
     }
   }
 
-  .tagline {
-    font-size: 1.25rem;
-    color: #093C4F;
+  .services h2 {
+    text-align: center;
     margin: 0 0 2rem;
   }
 
-  .services,
-  .visit,
-  .gallery {
-    width: 100%;
-    padding: 0 1rem;
-    box-sizing: border-box;
-  }
-
-  .gallery h2 {
-    text-align: center;
-    margin: 0 0 1.5rem;
-  }
-
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 1rem;
-  }
-
-  .gallery-grid img {
-    width: 100%;
-    height: 100%;
-    aspect-ratio: 3 / 4;
-    object-fit: cover;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(9, 60, 79, 0.12);
-    transition: transform 0.25s ease;
-  }
-
-  .gallery-grid img:hover {
-    transform: translateY(-4px);
-  }
-
-  .gallery-note {
-    text-align: center;
-    margin-top: 1.25rem;
-    color: #4a5b64;
-  }
-
-  .gallery-note a {
-    color: #093C4F;
-    font-weight: 600;
-  }
-
-  .services h2,
-  .visit h2 {
-    text-align: center;
-    margin: 0 0 1.5rem;
-  }
-
   .service-grid {
-    list-style: none;
-    padding: 0;
-    margin: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
   }
 
-  .service-grid li {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
-    padding: 1.25rem;
-    text-align: center;
-    box-shadow: 0 2px 12px rgba(9, 60, 79, 0.08);
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .service-grid strong {
-    font-size: 1.1rem;
-    color: #093C4F;
-  }
-
-  .service-grid span {
-    color: #4a5b64;
-    font-size: 0.95rem;
-  }
-
-  .visit {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 2rem;
-  }
-
-  .visit-block {
-    background: rgba(255, 255, 255, 0.7);
-    border-radius: 12px;
+  .service-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
     padding: 1.75rem;
-    box-shadow: 0 2px 12px rgba(9, 60, 79, 0.08);
-    text-align: center;
+    box-shadow: 0 4px 16px rgba(9, 60, 79, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .visit-block h2 {
-    margin-top: 0;
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(9, 60, 79, 0.14);
   }
 
-  .visit-block a {
+  .service-card h3 {
+    margin: 0 0 0.5rem;
     color: #093C4F;
-    font-weight: 600;
   }
 
-  .hours {
-    list-style: none;
-    padding: 0;
-    margin: 0 auto 0.75rem;
-    max-width: 280px;
+  .service-card p {
+    margin: 0;
+    color: #4a5b64;
+    line-height: 1.55;
   }
 
-  .hours li {
+  .visit-card {
+    background: linear-gradient(135deg, rgba(33, 166, 154, 0.12), rgba(246, 198, 90, 0.15));
+    border-radius: 20px;
+    padding: 2.5rem;
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
-    padding: 0.4rem 0;
-    border-bottom: 1px solid rgba(9, 60, 79, 0.1);
+    gap: 1.5rem;
   }
 
-  .hours li:last-child {
-    border-bottom: none;
+  .visit-card h2 {
+    margin: 0 0 0.5rem;
   }
 
-  .note {
-    color: #4a5b64;
-    font-size: 0.9rem;
-    margin: 0.5rem 0 0;
+  .visit-card p {
+    margin: 0;
+    color: #0D1D24;
+    line-height: 1.6;
   }
 
-  footer {
-    color: #4a5b64;
-    font-size: 0.9rem;
+  .visit-cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
   }
 </style>

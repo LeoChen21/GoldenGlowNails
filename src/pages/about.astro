@@ -1,0 +1,163 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout
+  title="About — Golden Glow Nail Studio"
+  description="Meet Golden Glow Nail Studio in Staten Island — a neighborhood nail salon focused on artistry, comfort, and clean, precise work."
+>
+  <section class="page-header container">
+    <p class="eyebrow">About Us</p>
+    <h1>A neighborhood salon built around craft.</h1>
+    <p class="lede">
+      Golden Glow Nail Studio is a full-service nail salon on Greaves Lane, serving Great Kills and greater
+      Staten Island. We believe your nails should feel as good as they look — and that a great manicure is
+      equal parts artistry, hygiene, and time well spent.
+    </p>
+  </section>
+
+  <section class="about container">
+    <div class="about-grid">
+      <article class="about-card">
+        <h2>Our Story</h2>
+        <p>
+          Golden Glow was founded to bring high-end nail art and spa-quality service to our home
+          neighborhood. What started with a small team of nail artists has grown into a studio known
+          for clean lines, comfortable service, and designs that get noticed.
+        </p>
+      </article>
+
+      <article class="about-card">
+        <h2>Our Craft</h2>
+        <p>
+          From classic French manicures to intricate hand-painted art and 3D nail sculptures, our
+          artists work across a wide range of techniques — gel, acrylic, dip, and more. Bring us
+          your inspiration; we&rsquo;ll bring it to life.
+        </p>
+      </article>
+
+      <article class="about-card">
+        <h2>Clean &amp; Careful</h2>
+        <p>
+          Sanitation isn&rsquo;t optional. We use fresh files and buffers for every guest, hospital-grade
+          disinfection for tools, and a clean, well-ventilated studio so you can relax without a second
+          thought.
+        </p>
+      </article>
+
+      <article class="about-card">
+        <h2>Come As You Are</h2>
+        <p>
+          Walk-ins are always welcome. Book ahead if you&rsquo;d like a specific artist or a longer
+          design session — a quick call is all it takes.
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="cta-band container">
+    <div class="cta-inner">
+      <div>
+        <h2>Ready to book?</h2>
+        <p>Give us a call — we&rsquo;ll find a time that works for you.</p>
+      </div>
+      <div class="cta">
+        <a href="tel:+17189847777" class="btn primary">Call (718) 984-7777</a>
+        <a href="/gallery" class="btn secondary">See Our Work</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem;
+  }
+
+  .page-header {
+    text-align: center;
+    padding-top: 4rem;
+  }
+
+  .eyebrow {
+    color: #21A69A;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .page-header h1 {
+    padding: 0;
+    margin: 0 auto 1rem;
+    max-width: 720px;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .lede {
+    max-width: 640px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.65;
+    color: #4a5b64;
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .about-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 16px rgba(9, 60, 79, 0.08);
+  }
+
+  .about-card h2 {
+    margin: 0 0 0.75rem;
+    color: #093C4F;
+    font-size: 1.35rem;
+  }
+
+  .about-card p {
+    margin: 0;
+    color: #4a5b64;
+    line-height: 1.65;
+  }
+
+  .cta-band {
+    padding-top: 1rem;
+  }
+
+  .cta-inner {
+    background: linear-gradient(135deg, rgba(33, 166, 154, 0.12), rgba(246, 198, 90, 0.15));
+    border-radius: 20px;
+    padding: 2.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+
+  .cta-inner h2 {
+    margin: 0 0 0.25rem;
+  }
+
+  .cta-inner p {
+    margin: 0;
+    color: #4a5b64;
+  }
+
+  .cta {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+</style>
