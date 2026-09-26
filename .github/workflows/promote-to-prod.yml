@@ -1,0 +1,95 @@
+name: Promote release to production
+
+on:
+  workflow_dispatch:
+    inputs:
+      release_branch:
+        description: "Release branch to promote — must be 'release/vX.Y.Z'"
+        required: true
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  guard:
+    name: Validate release branch
+    runs-on: ubuntu-latest
+    outputs:
+      ref: ${{ steps.check.outputs.ref }}
+    steps:
+      - name: Reject non-release refs
+        id: check
+        env:
+          REF: ${{ inputs.release_branch }}
+        run: |
+          if [[ ! "$REF" =~ ^release/v[0-9]+\.[0-9]+\.[0-9]+(-[0-9A-Za-z.-]+)?$ ]]; then
+            echo "::error::Refusing to promote '$REF'. Only 'release/vMAJOR.MINOR.PATCH' branches can be promoted to production."
+            exit 1
+          fi
+          echo "ref=$REF" >> "$GITHUB_OUTPUT"
+          echo "OK: $REF is a valid release branch."
+
+      - name: Confirm branch exists on origin
+        env:
+          REF: ${{ inputs.release_branch }}
+        run: |
+          if ! git ls-remote --exit-code --heads "https://github.com/${{ github.repository }}.git" "$REF" >/dev/null; then
+            echo "::error::Branch '$REF' does not exist on origin."
+            exit 1
+          fi
+          echo "OK: branch '$REF' exists on origin."
+
+  promote:
+    name: Build & deploy to production
+    needs: guard
+    runs-on: ubuntu-latest
+    environment:
+      name: production
+      url: https://goldenglownail.netlify.app
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout ${{ needs.guard.outputs.ref }}
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.guard.outputs.ref }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Deploy to Netlify production
+        uses: nwtgck/actions-netlify@v3
+        with:
+          publish-dir: ./dist
+          production-deploy: true
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "Promote ${{ needs.guard.outputs.ref }} (${{ github.sha }})"
+          enable-commit-comment: false
+          enable-pull-request-comment: false
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        timeout-minutes: 5
+
+      - name: Summary
+        env:
+          REF: ${{ needs.guard.outputs.ref }}
+        run: |
+          {
+            echo "### Promoted to production"
+            echo ""
+            echo "**Ref:** \`$REF\`"
+            echo "**URL:** https://goldenglownail.netlify.app"
+            echo ""
+            echo "To rollback: re-run this workflow with an earlier \`release/vX.Y.Z\` branch."
+          } >> "$GITHUB_STEP_SUMMARY"
