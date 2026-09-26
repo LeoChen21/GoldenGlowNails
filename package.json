@@ -9,6 +9,7 @@
     "preview": "astro preview"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.10",
     "astro": "^5.0.2",
     "netlify-cli": "^27.10.0",
     "prettier-plugin-astro": "^0.14.0",
