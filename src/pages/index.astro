@@ -8,12 +8,30 @@ import Background from '../components/Background.astro';
     <Background />
     <div id="content">
       <section class="hero">
-        <h1>Golden Glow Nail Studio</h1>
-        <p class="tagline">Where every nail tells a story.</p>
-        <div class="btns">
-          <a href="tel:+17189847777" class="btn primary">Call (718) 984-7777</a>
-          <a href="#visit" class="btn secondary">Plan Your Visit</a>
+        <div class="hero-text">
+          <h1>Golden Glow Nail Studio</h1>
+          <p class="tagline">Where every nail tells a story.</p>
+          <div class="btns">
+            <a href="tel:+17189847777" class="btn primary">Call (718) 984-7777</a>
+            <a href="#visit" class="btn secondary">Plan Your Visit</a>
+          </div>
         </div>
+        <div class="hero-image">
+          <img src="/photos/hero-fruit.png" alt="Colorful summer nail art with orange and floral designs" />
+        </div>
+      </section>
+
+      <section class="gallery">
+        <h2>Our Work</h2>
+        <div class="gallery-grid">
+          <img src="/photos/nail-purple.png" alt="Purple nails with floral accents" loading="lazy" />
+          <img src="/photos/nail-bows.png" alt="Green nails with pink bow designs" loading="lazy" />
+          <img src="/photos/nail-galaxy.png" alt="Galaxy-themed nail art with stars" loading="lazy" />
+          <img src="/photos/nail-cats.png" alt="Nail art with cat characters" loading="lazy" />
+          <img src="/photos/nail-snowflake.png" alt="Soft pink nails with snowflake design" loading="lazy" />
+          <img src="/photos/hero-fruit.png" alt="Summer fruit-themed nails" loading="lazy" />
+        </div>
+        <p class="gallery-note">See more on <a href="https://instagram.com/goldenglownail" target="_blank" rel="noopener">Instagram @goldenglownail</a></p>
       </section>
 
       <section class="services">
@@ -81,14 +99,44 @@ import Background from '../components/Background.astro';
   }
 
   .hero {
-    text-align: center;
-    padding: 2rem 0 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: center;
+    padding: 2rem 1rem 1rem;
+  }
+
+  .hero-text {
+    text-align: left;
   }
 
   .hero h1 {
     padding-top: 0;
     margin: 0 0 0.5rem;
     letter-spacing: -0.02em;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 12px 32px rgba(9, 60, 79, 0.18);
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+  }
+
+  @media (max-width: 720px) {
+    .hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+    .hero-text {
+      text-align: center;
+    }
+    .hero-image {
+      max-width: 320px;
+      margin: 0 auto;
+    }
   }
 
   .tagline {
@@ -98,10 +146,47 @@ import Background from '../components/Background.astro';
   }
 
   .services,
-  .visit {
+  .visit,
+  .gallery {
     width: 100%;
     padding: 0 1rem;
     box-sizing: border-box;
+  }
+
+  .gallery h2 {
+    text-align: center;
+    margin: 0 0 1.5rem;
+  }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+  }
+
+  .gallery-grid img {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(9, 60, 79, 0.12);
+    transition: transform 0.25s ease;
+  }
+
+  .gallery-grid img:hover {
+    transform: translateY(-4px);
+  }
+
+  .gallery-note {
+    text-align: center;
+    margin-top: 1.25rem;
+    color: #4a5b64;
+  }
+
+  .gallery-note a {
+    color: #093C4F;
+    font-weight: 600;
   }
 
   .services h2,
