@@ -23,21 +23,21 @@ import Layout from '../components/Layout.astro';
   </section>
 
   <section id="services" class="services container">
-    <h2>What We Do</h2>
+    <h2 data-reveal>What We Do</h2>
     <div class="service-grid">
-      <article class="service-card">
+      <article class="service-card" data-reveal>
         <h3>Manicures</h3>
         <p>Classic, gel, and acrylic finishes tailored to your style.</p>
       </article>
-      <article class="service-card">
+      <article class="service-card" data-reveal>
         <h3>Pedicures</h3>
         <p>Spa treatments, deluxe soaks, and polish that lasts.</p>
       </article>
-      <article class="service-card">
+      <article class="service-card" data-reveal>
         <h3>Nail Art</h3>
         <p>Hand-painted, jeweled, and 3D designs by our artists.</p>
       </article>
-      <article class="service-card">
+      <article class="service-card" data-reveal>
         <h3>Waxing</h3>
         <p>Brows, lip, and facial waxing for a polished finish.</p>
       </article>
@@ -45,7 +45,7 @@ import Layout from '../components/Layout.astro';
   </section>
 
   <section id="visit" class="visit container">
-    <div class="visit-card">
+    <div class="visit-card" data-reveal>
       <div>
         <h2>Come Visit</h2>
         <p>
@@ -87,7 +87,7 @@ import Layout from '../components/Layout.astro';
   }
 
   .eyebrow {
-    color: #21A69A;
+    color: var(--gold-deep);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -104,7 +104,7 @@ import Layout from '../components/Layout.astro';
 
   .lede {
     font-size: 1.15rem;
-    color: #4a5b64;
+    color: var(--muted);
     line-height: 1.6;
     margin: 0 0 1.75rem;
     max-width: 480px;
@@ -122,17 +122,44 @@ import Layout from '../components/Layout.astro';
     border-radius: 20px;
     aspect-ratio: 3 / 4;
     object-fit: cover;
-    box-shadow: 0 20px 40px rgba(9, 60, 79, 0.2);
+    box-shadow: 0 20px 40px rgba(58, 46, 30, 0.2);
   }
 
-  @media (max-width: 720px) {
+  @media (max-width: 860px) {
     .hero-inner {
       grid-template-columns: 1fr;
       gap: 2rem;
+      text-align: center;
+    }
+    .hero-text {
+      order: 2;
     }
     .hero-image {
-      max-width: 320px;
+      order: 1;
+      max-width: 340px;
       margin: 0 auto;
+    }
+    .cta {
+      justify-content: center;
+    }
+    .lede {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero {
+      padding: 1.5rem 1rem 1rem;
+    }
+    .hero-image {
+      max-width: 280px;
+    }
+    .cta .btn {
+      width: 100%;
+    }
+    .visit-cta .btn {
+      flex: 1 1 auto;
     }
   }
 
@@ -151,28 +178,28 @@ import Layout from '../components/Layout.astro';
     background: rgba(255, 255, 255, 0.85);
     border-radius: 16px;
     padding: 1.75rem;
-    box-shadow: 0 4px 16px rgba(9, 60, 79, 0.08);
+    box-shadow: 0 4px 16px rgba(58, 46, 30, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .service-card:hover {
     transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(9, 60, 79, 0.14);
+    box-shadow: 0 10px 24px rgba(58, 46, 30, 0.14);
   }
 
   .service-card h3 {
     margin: 0 0 0.5rem;
-    color: #093C4F;
+    color: var(--ink);
   }
 
   .service-card p {
     margin: 0;
-    color: #4a5b64;
+    color: var(--muted);
     line-height: 1.55;
   }
 
   .visit-card {
-    background: linear-gradient(135deg, rgba(33, 166, 154, 0.12), rgba(246, 198, 90, 0.15));
+    background: linear-gradient(135deg, rgba(232, 200, 128, 0.35), rgba(245, 230, 200, 0.55));
     border-radius: 20px;
     padding: 2.5rem;
     display: flex;
@@ -188,7 +215,7 @@ import Layout from '../components/Layout.astro';
 
   .visit-card p {
     margin: 0;
-    color: #0D1D24;
+    color: var(--ink);
     line-height: 1.6;
   }
 

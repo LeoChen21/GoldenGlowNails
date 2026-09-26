@@ -54,9 +54,9 @@
 <style>
   .site-footer {
     margin-top: 4rem;
-    background: linear-gradient(180deg, rgba(9, 60, 79, 0.02), rgba(9, 60, 79, 0.08));
-    border-top: 1px solid rgba(9, 60, 79, 0.08);
-    color: #0D1D24;
+    background: linear-gradient(180deg, rgba(58, 46, 30, 0.02), var(--line));
+    border-top: 1px solid var(--line);
+    color: var(--ink);
   }
 
   .footer-inner {
@@ -70,8 +70,10 @@
 
   .footer-col h3 {
     margin: 0 0 0.5rem;
-    font-size: 1.1rem;
-    color: #093C4F;
+    font-family: var(--serif-family);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--ink);
   }
 
   .footer-col h4 {
@@ -79,7 +81,7 @@
     font-size: 0.85rem;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #093C4F;
+    color: var(--ink);
   }
 
   .footer-col p,
@@ -91,18 +93,18 @@
   }
 
   .footer-col a {
-    color: #0D1D24;
+    color: var(--ink);
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: border-color 0.2s ease;
   }
 
   .footer-col a:hover {
-    border-color: #21A69A;
+    border-color: var(--gold);
   }
 
   .footer-col .tagline {
-    color: #4a5b64;
+    color: var(--muted);
     font-style: italic;
   }
 
@@ -118,7 +120,7 @@
     justify-content: space-between;
     padding: 0.3rem 0;
     font-size: 0.95rem;
-    border-bottom: 1px solid rgba(9, 60, 79, 0.1);
+    border-bottom: 1px solid var(--line);
   }
 
   .hours li:last-child {
@@ -130,15 +132,15 @@
   }
 
   .note {
-    color: #4a5b64;
+    color: var(--muted);
     font-size: 0.85rem;
   }
 
   .footer-bottom {
-    border-top: 1px solid rgba(9, 60, 79, 0.08);
+    border-top: 1px solid var(--line);
     text-align: center;
     padding: 1.25rem;
-    color: #4a5b64;
+    color: var(--muted);
     font-size: 0.85rem;
   }
 

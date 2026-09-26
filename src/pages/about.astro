@@ -18,7 +18,7 @@ import Layout from '../components/Layout.astro';
 
   <section class="about container">
     <div class="about-grid">
-      <article class="about-card">
+      <article class="about-card" data-reveal>
         <h2>Our Story</h2>
         <p>
           Golden Glow was founded to bring high-end nail art and spa-quality service to our home
@@ -27,7 +27,7 @@ import Layout from '../components/Layout.astro';
         </p>
       </article>
 
-      <article class="about-card">
+      <article class="about-card" data-reveal>
         <h2>Our Craft</h2>
         <p>
           From classic French manicures to intricate hand-painted art and 3D nail sculptures, our
@@ -36,7 +36,7 @@ import Layout from '../components/Layout.astro';
         </p>
       </article>
 
-      <article class="about-card">
+      <article class="about-card" data-reveal>
         <h2>Clean &amp; Careful</h2>
         <p>
           Sanitation isn&rsquo;t optional. We use fresh files and buffers for every guest, hospital-grade
@@ -45,7 +45,7 @@ import Layout from '../components/Layout.astro';
         </p>
       </article>
 
-      <article class="about-card">
+      <article class="about-card" data-reveal>
         <h2>Come As You Are</h2>
         <p>
           Walk-ins are always welcome. Book ahead if you&rsquo;d like a specific artist or a longer
@@ -82,7 +82,7 @@ import Layout from '../components/Layout.astro';
   }
 
   .eyebrow {
-    color: #21A69A;
+    color: var(--gold-deep);
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
@@ -103,7 +103,7 @@ import Layout from '../components/Layout.astro';
     margin: 0 auto;
     font-size: 1.1rem;
     line-height: 1.65;
-    color: #4a5b64;
+    color: var(--muted);
   }
 
   .about-grid {
@@ -116,18 +116,18 @@ import Layout from '../components/Layout.astro';
     background: rgba(255, 255, 255, 0.85);
     border-radius: 16px;
     padding: 2rem;
-    box-shadow: 0 4px 16px rgba(9, 60, 79, 0.08);
+    box-shadow: 0 4px 16px rgba(58, 46, 30, 0.08);
   }
 
   .about-card h2 {
     margin: 0 0 0.75rem;
-    color: #093C4F;
+    color: var(--ink);
     font-size: 1.35rem;
   }
 
   .about-card p {
     margin: 0;
-    color: #4a5b64;
+    color: var(--muted);
     line-height: 1.65;
   }
 
@@ -136,7 +136,7 @@ import Layout from '../components/Layout.astro';
   }
 
   .cta-inner {
-    background: linear-gradient(135deg, rgba(33, 166, 154, 0.12), rgba(246, 198, 90, 0.15));
+    background: linear-gradient(135deg, rgba(232, 200, 128, 0.35), rgba(245, 230, 200, 0.55));
     border-radius: 20px;
     padding: 2.5rem;
     display: flex;
@@ -152,7 +152,7 @@ import Layout from '../components/Layout.astro';
 
   .cta-inner p {
     margin: 0;
-    color: #4a5b64;
+    color: var(--muted);
   }
 
   .cta {
